@@ -1,0 +1,23 @@
+# robots.txt — Guelwab Official Site
+# Allow all crawlers including AI bots
+
+User-agent: *
+Allow: /
+
+# Allow AI crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://guelwab-music-portofolio.vercel.app/sitemap.xml
