@@ -7,7 +7,7 @@
 // Tip: use portrait/vertical shots for best results
 export const HERO_IMAGES = [
     {
-        src: "../src/assets/gwhero1.jpeg",          
+        src: "./assets/gwhero1.jpeg",
         alt: "Guelwab — performance scène",
     },
     {

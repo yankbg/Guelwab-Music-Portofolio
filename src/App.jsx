@@ -291,7 +291,7 @@ export default function GuelwabPortfolio() {
             <div className="story-imgs">
               {STORY_IMAGES.map((img, i) => (
                   <div className="s-img" key={i}>
-                    <img src={img.src} alt={img.alt} />
+                    <img src={img.src} alt={img.alt} style={{height: "5rem", objectPosition: "top center"}} className="story-pic" />
                   </div>
               ))}
               <div className="s-badge">
