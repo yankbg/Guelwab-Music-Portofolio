@@ -18,9 +18,9 @@ import emailjs from "@emailjs/browser";
 // Dashboard → Account → API Keys  (for PUBLIC_KEY)
 // Dashboard → Email Services      (for SERVICE_ID)
 // Dashboard → Email Templates     (for TEMPLATE_ID)
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // ← replace
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // ← replace
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // ← replace
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 // ── TEMPLATE VARIABLE MAPPING ────────────────────────────────
 // In your EmailJS template, use:

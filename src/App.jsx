@@ -12,6 +12,7 @@ import {
   WAVE_H,
   VINYL_PHOTO,
 } from "./data.js";
+import ContactForm from "./ContactForm";
 
 // ── CURSOR HOOK ───────────────────────────────────────────────
 function useCursor() {
@@ -448,28 +449,7 @@ export default function GuelwabPortfolio() {
             </div>
 
             {/* Right: contact form */}
-            <div className="cw-box">
-              <div className="cw-box-title">Envoyer un Message</div>
-              <div className="cw-field">
-                <label className="cw-label">Votre Nom</label>
-                <input type="text" className="cw-input" placeholder="Ex. Jean Mukengezi" />
-              </div>
-              <div className="cw-field">
-                <label className="cw-label">Email</label>
-                <input type="email" className="cw-input" placeholder="email@exemple.com" />
-              </div>
-              <div className="cw-field">
-                <label className="cw-label">Sujet</label>
-                <input type="text" className="cw-input" placeholder="Booking · Collaboration · Presse" />
-              </div>
-              <div className="cw-field">
-                <label className="cw-label">Message</label>
-                <textarea className="cw-input" placeholder="Décrivez votre projet..." />
-              </div>
-              <button className="btn-g" style={{ width: "100%", marginTop: 8 }}>
-                Envoyer →
-              </button>
-            </div>
+            <ContactForm />
           </div>
         </section>
 
@@ -477,7 +457,11 @@ export default function GuelwabPortfolio() {
         <footer>
           <div className="f-logo">GUELWAB 🦋</div>
           <div className="f-tagline">"On ne fait jamais taire une passion."</div>
-          <div className="f-copy">© 2025 Guelwab · Goma, DRC<br />Tous droits réservés</div>
+          <div className="f-copy">
+            © 2026 Guelwab · Goma, DRC<br />
+            Tous droits réservés
+            <span className="f-dev">Développé par <a href="https://github.com/yankbg" target="_blank" rel="noreferrer">Yaan kbg</a></span>
+          </div>
         </footer>
       </>
   );
