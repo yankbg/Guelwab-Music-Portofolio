@@ -205,7 +205,7 @@ export const TRACKS = [
         title: "Moini ",
         tag: "Afro-pop & RnB · 2023",
         dur: "2:47",
-        audioSrc: "./assets/audio/moini.mp3",
+        audioSrc: "./assets/audio/MOINI.mp3",
         streamUrl: "https://www.ashburyedu.co.za/details/E1lXb02I684",
     },
     {
