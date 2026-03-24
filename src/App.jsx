@@ -50,14 +50,11 @@ function useAudio() {
 
   const handlePlay = useCallback((track) => {
     if (playing === track.id) {
-      // Pause
       audioRef.current?.pause();
       setPlaying(null);
       setSpinning(false);
     } else {
-      // Stop previous
       audioRef.current?.pause();
-
       if (track.audioSrc) {
         const audio = new Audio(track.audioSrc);
         audio.play().catch(() => {});
@@ -71,9 +68,7 @@ function useAudio() {
     }
   }, [playing]);
 
-  // Cleanup on unmount
   useEffect(() => () => audioRef.current?.pause(), []);
-
   return { playing, spinning, handlePlay };
 }
 
@@ -88,23 +83,14 @@ function VideoItem({ video }) {
   return (
       <div className={video.big ? "video-main" : ""}>
         <div className="v-item" onClick={handleClick}>
-          {/* Thumbnail image */}
           {video.thumbSrc && (
-              <img
-                  className="v-thumb"
-                  src={video.thumbSrc}
-                  alt={video.title}
-              />
+              <img className="v-thumb" src={video.thumbSrc} alt={video.title} />
           )}
-
-          {/* Play overlay */}
           <div className="v-overlay">
             <div className="v-play">▶</div>
             <div className="v-lbl">{video.meta}</div>
           </div>
-
           <div className="v-dur">{video.dur}</div>
-
           <div className="v-info">
             <div className="v-title">{video.title}</div>
             <div className="v-meta">{video.meta}</div>
@@ -141,13 +127,12 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
   const isOpen = index !== null;
   const item   = isOpen ? items[index] : null;
 
-  // Keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => {
-      if (e.key === "Escape")    onClose();
-      if (e.key === "ArrowLeft") onPrev();
-      if (e.key === "ArrowRight")onNext();
+      if (e.key === "Escape")     onClose();
+      if (e.key === "ArrowLeft")  onPrev();
+      if (e.key === "ArrowRight") onNext();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -160,13 +145,7 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
               <button className="lb-close" onClick={onClose}>✕</button>
               <button className="lb-nav lb-prev" onClick={onPrev}>‹</button>
               <button className="lb-nav lb-next" onClick={onNext}>›</button>
-
-              <img
-                  className="lb-img"
-                  src={item.src}
-                  alt={item.alt}
-              />
-
+              <img className="lb-img" src={item.src} alt={item.alt} />
               <div className="lb-info">
                 <div>
                   <div className="lb-title">{item.label}</div>
@@ -182,10 +161,11 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
 
 // ── MAIN COMPONENT ────────────────────────────────────────────
 export default function GuelwabPortfolio() {
-  const { mouse, ring }           = useCursor();
+  const { mouse, ring }                   = useCursor();
   const { playing, spinning, handlePlay } = useAudio();
-  const [cat, setCat]             = useState("tous");
-  const [lbIndex, setLbIndex]     = useState(null);
+  const [cat,      setCat]                = useState("tous");
+  const [lbIndex,  setLbIndex]            = useState(null);
+  const [menuOpen, setMenuOpen]           = useState(false);  // ← hamburger state
 
   const filtered = cat === "tous" ? GALLERY : GALLERY.filter((g) => g.cat === cat);
 
@@ -194,7 +174,23 @@ export default function GuelwabPortfolio() {
   const lbPrev  = useCallback(() => setLbIndex((i) => (i - 1 + filtered.length) % filtered.length), [filtered.length]);
   const lbNext  = useCallback(() => setLbIndex((i) => (i + 1) % filtered.length), [filtered.length]);
 
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // Close menu on scroll
+  useEffect(() => {
+    const onScroll = () => setMenuOpen(false);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const scrollTo = (id) => {
+    setMenuOpen(false);
+    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 100);
+  };
 
   return (
       <>
@@ -205,6 +201,8 @@ export default function GuelwabPortfolio() {
         {/* ── NAV ── */}
         <nav>
           <div className="n-logo">GUEL<span>WAB</span> 🦋</div>
+
+          {/* Desktop links */}
           <ul className="n-links">
             <li><a href="#story"   onClick={(e) => { e.preventDefault(); scrollTo("story");   }}>Histoire</a></li>
             <li><a href="#gallery" onClick={(e) => { e.preventDefault(); scrollTo("gallery"); }}>Galerie</a></li>
@@ -212,7 +210,29 @@ export default function GuelwabPortfolio() {
             <li><a href="#music"   onClick={(e) => { e.preventDefault(); scrollTo("music");   }}>Musique</a></li>
             <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a></li>
           </ul>
+
+          {/* Hamburger button — visible on mobile */}
+          <button
+              className={`nav-toggle ${menuOpen ? "open" : ""}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+          >
+            <span /><span /><span />
+          </button>
         </nav>
+
+        {/* ── MOBILE DRAWER ── */}
+        <div className={`nav-drawer ${menuOpen ? "open" : ""}`}>
+          {["story","gallery","videos","music","contact"].map((id) => (
+              <a
+                  key={id}
+                  href={`#${id}`}
+                  onClick={(e) => { e.preventDefault(); scrollTo(id); }}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </a>
+          ))}
+        </div>
 
         {/* ── HERO ── */}
         <div className="hero">
@@ -235,7 +255,6 @@ export default function GuelwabPortfolio() {
             </div>
           </div>
 
-          {/* Hero right: 3 real images in a grid */}
           <div className="hero-right">
             <div className="hero-right-inner">
               {HERO_IMAGES.map((img, i) => (
@@ -269,13 +288,10 @@ export default function GuelwabPortfolio() {
         <section id="story" className="sec">
           <div className="sec-label">Histoire</div>
           <div className="story-grid">
-
-            {/* Left: real photos */}
             <div className="story-imgs">
               {STORY_IMAGES.map((img, i) => (
                   <div className="s-img" key={i}>
-                    <img src={img.src} alt={img.alt}
-                         style={{height: "5rem", objectPosition: "top center"}} className="story-pic" />
+                    <img src={img.src} alt={img.alt} />
                   </div>
               ))}
               <div className="s-badge">
@@ -283,8 +299,6 @@ export default function GuelwabPortfolio() {
                 <span className="s-badge-txt">Depuis</span>
               </div>
             </div>
-
-            {/* Right: bio text */}
             <div>
               <div className="st-tag">Biographie</div>
               <h2 className="st-title">
@@ -311,7 +325,6 @@ export default function GuelwabPortfolio() {
         {/* ── GALLERY ── */}
         <section id="gallery" className="sec sec-alt">
           <div className="sec-label">Galerie</div>
-
           <div className="gallery-header">
             <h2 className="gallery-title">Moments<br />en <em>Images</em></h2>
             <div className="gallery-filter">
@@ -326,7 +339,6 @@ export default function GuelwabPortfolio() {
               ))}
             </div>
           </div>
-
           <div className="masonry">
             {filtered.map((item, i) => (
                 <GalleryItem key={item.id} item={item} index={i} onExpand={lbOpen} />
@@ -335,21 +347,13 @@ export default function GuelwabPortfolio() {
         </section>
 
         {/* ── LIGHTBOX ── */}
-        <Lightbox
-            items={filtered}
-            index={lbIndex}
-            onClose={lbClose}
-            onPrev={lbPrev}
-            onNext={lbNext}
-        />
+        <Lightbox items={filtered} index={lbIndex} onClose={lbClose} onPrev={lbPrev} onNext={lbNext} />
 
         {/* ── VIDEOS ── */}
         <section id="videos" className="sec">
           <div className="sec-label">Vidéos &amp; Performances</div>
           <div className="video-grid">
-            {VIDEOS.map((v) => (
-                <VideoItem key={v.id} video={v} />
-            ))}
+            {VIDEOS.map((v) => <VideoItem key={v.id} video={v} />)}
           </div>
         </section>
 
@@ -357,8 +361,6 @@ export default function GuelwabPortfolio() {
         <section id="music" className="sec sec-alt">
           <div className="sec-label">Discographie</div>
           <div className="tracks-layout">
-
-            {/* Left: vinyl + description */}
             <div className="tracks-aside">
               <h2 className="ta-big">Ma<br /><em>Musique</em></h2>
               <p className="ta-desc">
@@ -366,10 +368,7 @@ export default function GuelwabPortfolio() {
               </p>
               <div className={`vinyl ${spinning ? "spin" : ""}`}>
                 <div className="vinyl-center">
-                  {VINYL_PHOTO
-                      ? <img src={VINYL_PHOTO} alt="Guelwab" />
-                      : <span>🦋</span>
-                  }
+                  {VINYL_PHOTO ? <img src={VINYL_PHOTO} alt="Guelwab" /> : <span>🦋</span>}
                 </div>
               </div>
               {playing && (
@@ -378,8 +377,6 @@ export default function GuelwabPortfolio() {
                   </div>
               )}
             </div>
-
-            {/* Right: track list */}
             <div className="track-list">
               {TRACKS.map((t, i) => (
                   <div
@@ -388,9 +385,7 @@ export default function GuelwabPortfolio() {
                       onClick={() => handlePlay(t)}
                   >
                     <span className="t-num">0{i + 1}</span>
-                    <button className="t-play">
-                      {playing === t.id ? "❚❚" : "▶"}
-                    </button>
+                    <button className="t-play">{playing === t.id ? "❚❚" : "▶"}</button>
                     <div className="t-info">
                       <div className="t-title">{t.title}</div>
                       <div className="t-tag">{t.tag}</div>
@@ -398,11 +393,7 @@ export default function GuelwabPortfolio() {
                     {playing === t.id ? (
                         <div className="wave-wrap">
                           {WAVE_H.map((h, j) => (
-                              <div
-                                  key={j}
-                                  className="w-bar"
-                                  style={{ height: h + "px", animationDelay: j * 0.1 + "s" }}
-                              />
+                              <div key={j} className="w-bar" style={{ height: h + "px", animationDelay: j * 0.1 + "s" }} />
                           ))}
                         </div>
                     ) : (
@@ -432,8 +423,6 @@ export default function GuelwabPortfolio() {
         <section id="contact" className="sec sec-alt">
           <div className="sec-label">Contact</div>
           <div className="contact-wrap">
-
-            {/* Left: info + socials */}
             <div>
               <h2 className="cw-title">Travaillons<br /><em>Ensemble</em></h2>
               <p className="cw-sub">
@@ -447,8 +436,6 @@ export default function GuelwabPortfolio() {
                 ))}
               </div>
             </div>
-
-            {/* Right: contact form */}
             <ContactForm />
           </div>
         </section>
