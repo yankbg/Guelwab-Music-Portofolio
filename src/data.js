@@ -7,15 +7,15 @@
 // Tip: use portrait/vertical shots for best results
 export const HERO_IMAGES = [
     {
-        src: "../src/assets/gwhero1.jpeg",          // ← replace with your image path or URL
+        src: "../src/assets/gwhero1.jpeg",          
         alt: "Guelwab — performance scène",
     },
     {
-        src: "../src/assets/gwhero2.jpeg",          // ← replace
+        src: "../src/assets/gwhero2.jpeg",          
         alt: "Guelwab — portrait studio",
     },
     {
-        src: "../src/assets/gwhero3.jpeg",          // ← replace
+        src: "../src/assets/gwhero3.jpeg",          
         alt: "Guelwab — backstage",
     },
 ];
@@ -23,15 +23,15 @@ export const HERO_IMAGES = [
 // ── STORY / ABOUT IMAGES (3 slots) ──────────────────────────
 export const STORY_IMAGES = [
     {
-        src: "../src/assets/gwabout2.jpeg",      // ← wide/landscape photo (spans 2 cols)
+        src: "../src/assets/guelwab2.jpeg",      // ← wide/landscape photo (spans 2 cols)
         alt: "Guelwab portrait",
     },
     {
-        src: "../src/assets/gwabout2.jpeg",         // ← portrait photo
+        src: "../src/assets/guelwab3.jpeg",         // ← portrait photo
         alt: "Guelwab en concert",
     },
     {
-        src: "../src/assets/gwabout1.jpeg",         // ← portrait photo
+        src: "../src/assets/guelwab2.jpeg",         // ← portrait photo
         alt: "Guelwab studio",
     },
 ];
@@ -42,16 +42,16 @@ export const STORY_IMAGES = [
 export const GALLERY = [
     {
         id: 1,
-        src: "/assets/hero.png",       // ← replace
-        alt: "Scène Goma",
-        label: "Scène · Goma",
-        mood: "Performance",
+        src: "../src/assets/guelwab7.jpg",       
+        alt: "Mood chill",
+        label: "Mood · chill",
+        mood: "Visiting",
         cat: "live",
         height: 340,
     },
     {
         id: 2,
-        src: "/assets/hero.png",       // ← replace
+        src: "../src/assets/guelwab4.jpeg",       
         alt: "Studio Session",
         label: "Studio Session",
         mood: "Création",
@@ -60,7 +60,7 @@ export const GALLERY = [
     },
     {
         id: 3,
-        src: "/assets/hero.png",       // ← replace
+        src: "../src/assets/guelwab8.jpg",       
         alt: "Backstage",
         label: "Backstage",
         mood: "Coulisses",
@@ -69,7 +69,7 @@ export const GALLERY = [
     },
     {
         id: 4,
-        src: "/assets/hero.png",       // ← replace
+        src: "../src/assets/guelpotrait.jpg",       
         alt: "Portrait",
         label: "Portrait",
         mood: "Portrait",
@@ -78,25 +78,25 @@ export const GALLERY = [
     },
     {
         id: 5,
-        src: "/assets/hero.png",       // ← replace
-        alt: "Goma Sunrise",
-        label: "Goma Sunrise",
+        src: "../src/assets/guelafri.jpg",       
+        alt: "African Woman",
+        label: "African Woman",
         mood: "Vie",
         cat: "life",
         height: 260,
     },
     {
         id: 6,
-        src: "/assets/hero.png",       // ← replace
-        alt: "Concours 2024",
-        label: "Concours 2024",
-        mood: "Concours",
+        src: "../src/assets/guelinter.jpg",       
+        alt: "Interview 2026",
+        label: "Interview 2026",
+        mood: "Interview",
         cat: "live",
         height: 320,
     },
     {
         id: 7,
-        src: "/assets/hero.png",       // ← replace
+        src: "../src/assets/guelwaben.jpg",       
         alt: "Enregistrement",
         label: "Enregistrement",
         mood: "Studio",
@@ -105,7 +105,7 @@ export const GALLERY = [
     },
     {
         id: 8,
-        src: "/assets/hero.png",       // ← replace
+        src: "../src/assets/gwabout2.jpeg",       
         alt: "Séance Photo",
         label: "Séance Photo",
         mood: "Portrait",
@@ -114,10 +114,10 @@ export const GALLERY = [
     },
     {
         id: 9,
-        src: "/assets/hero.png",       // ← replace
-        alt: "Kinshasa Tour",
-        label: "Kinshasa Tour",
-        mood: "Tournée",
+        src: "../src/assets/guelwab5.jpeg",       
+        alt: "Boss Lady",
+        label: "Boss Lady",
+        mood: "Travail",
         cat: "life",
         height: 240,
     },
@@ -132,37 +132,37 @@ export const GALLERY = [
 export const VIDEOS = [
     {
         id: 1,
-        thumbSrc: "/images/video-thumb-1.jpg",  // ← replace
-        videoSrc: null,                          // ← or "/videos/festival.mp4"
-        youtubeId: null,            // ← replace or set null
-        title: "Goma Live — Festival",
-        meta: "Performance · 2024",
-        dur: "14:32",
+        thumbSrc: "../src/assets/guelamanda.jpg",  
+        videoSrc: null,                          
+        youtubeId: "DPCRpkav3Bw",            
+        title: "Amanda - Version Congolaise",
+        meta: "Cover by guelwab· 2025",
+        dur: "1:06",
         big: true,
     },
     {
         id: 2,
-        thumbSrc: "/assets/hero.png",  // ← replace
+        thumbSrc: "../src/assets/guelwab6.jpeg",
         videoSrc: null,
-        youtubeId: null,           // ← replace or set null
-        title: "Papillon d'Or — Clip Officiel",
-        meta: "Clip officiel · 2024",
-        dur: "3:58",
+        youtubeId: "fZvEnowSa-g",
+        title: "bad influence — omah lay",
+        meta: "cover by guelwab · 2025",
+        dur: "2:11",
         big: false,
     },
     {
         id: 3,
-        thumbSrc: "/assets/hero.png",  // ← replace
+        thumbSrc: "../src/assets/flag.jpeg",
         videoSrc: null,
-        youtubeId: null,
-        title: "Studio Diary Ep.1",
-        meta: "Behind the scenes",
-        dur: "8:12",
+        youtubeId: "dp9ng7BR_MQ",
+        title: "Le congo est à nous",
+        meta: "guelwab ",
+        dur: "1:12",
         big: false,
     },
     {
         id: 4,
-        thumbSrc: "../src/assets/gwhero1.jpeg",  // ← replace
+        thumbSrc: "../src/assets/gwhero1.jpeg",  
         videoSrc: null,
         youtubeId: "1qCvVI0IWNY",
         title: "lâche",
@@ -181,8 +181,8 @@ export const TRACKS = [
         title: "Kindu",
         tag: "Afro-Soul · 2024",
         dur: "3:42",
-        audioSrc: null,                          // ← or "/audio/kindu.mp3"
-        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",  // ← replace or null
+        audioSrc: null,
+        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
     },
     {
         id: 2,
@@ -229,7 +229,7 @@ export const TRACKS = [
 // ── VINYL CENTER PHOTO ───────────────────────────────────────
 // Small circular photo shown in the center of the spinning vinyl
 // Use a close-up portrait of Guelwab
-export const VINYL_PHOTO = "/assets/hero.png"; // ← replace or set null
+export const VINYL_PHOTO = "/assets/hero.png";
 
 // ── PRESS / QUOTES ───────────────────────────────────────────
 export const QUOTES = [
