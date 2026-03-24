@@ -11,11 +11,11 @@ export const HERO_IMAGES = [
         alt: "Guelwab — performance scène",
     },
     {
-        src: "../src/assets/gwhero2.jpeg",          
+        src: "./assets/gwhero2.jpeg",          
         alt: "Guelwab — portrait studio",
     },
     {
-        src: "../src/assets/gwhero3.jpeg",          
+        src: "./assets/gwhero3.jpeg",          
         alt: "Guelwab — backstage",
     },
 ];
@@ -23,15 +23,15 @@ export const HERO_IMAGES = [
 // ── STORY / ABOUT IMAGES (3 slots) ──────────────────────────
 export const STORY_IMAGES = [
     {
-        src: "../src/assets/guelwab2.jpeg",      // ← wide/landscape photo (spans 2 cols)
+        src: "./assets/guelwab2.jpeg",      // ← wide/landscape photo (spans 2 cols)
         alt: "Guelwab portrait",
     },
     {
-        src: "../src/assets/guelwab3.jpeg",         // ← portrait photo
+        src: "./assets/guelwab3.jpeg",         // ← portrait photo
         alt: "Guelwab en concert",
     },
     {
-        src: "../src/assets/guelwab2.jpeg",         // ← portrait photo
+        src: "./assets/guelwab2.jpeg",         // ← portrait photo
         alt: "Guelwab studio",
     },
 ];
@@ -42,7 +42,7 @@ export const STORY_IMAGES = [
 export const GALLERY = [
     {
         id: 1,
-        src: "../src/assets/guelwab7.jpg",       
+        src: "./assets/guelwab7.jpg",       
         alt: "Mood chill",
         label: "Mood · chill",
         mood: "Visiting",
@@ -51,7 +51,7 @@ export const GALLERY = [
     },
     {
         id: 2,
-        src: "../src/assets/guelwab4.jpeg",       
+        src: "./assets/guelwab4.jpeg",       
         alt: "Studio Session",
         label: "Studio Session",
         mood: "Création",
@@ -60,7 +60,7 @@ export const GALLERY = [
     },
     {
         id: 3,
-        src: "../src/assets/guelwab8.jpg",       
+        src: "./assets/guelwab8.jpg",       
         alt: "Backstage",
         label: "Backstage",
         mood: "Coulisses",
@@ -69,7 +69,7 @@ export const GALLERY = [
     },
     {
         id: 4,
-        src: "../src/assets/guelpotrait.jpg",       
+        src: "./assets/guelpotrait.jpg",       
         alt: "Portrait",
         label: "Portrait",
         mood: "Portrait",
@@ -78,7 +78,7 @@ export const GALLERY = [
     },
     {
         id: 5,
-        src: "../src/assets/guelafri.jpg",       
+        src: "./assets/guelafri.jpg",       
         alt: "African Woman",
         label: "African Woman",
         mood: "Vie",
@@ -87,7 +87,7 @@ export const GALLERY = [
     },
     {
         id: 6,
-        src: "../src/assets/guelinter.jpg",       
+        src: "./assets/guelinter.jpg",       
         alt: "Interview 2026",
         label: "Interview 2026",
         mood: "Interview",
@@ -96,7 +96,7 @@ export const GALLERY = [
     },
     {
         id: 7,
-        src: "../src/assets/guelwaben.jpg",       
+        src: "./assets/guelwaben.jpg",       
         alt: "Enregistrement",
         label: "Enregistrement",
         mood: "Studio",
@@ -105,7 +105,7 @@ export const GALLERY = [
     },
     {
         id: 8,
-        src: "../src/assets/gwabout2.jpeg",       
+        src: "./assets/gwabout2.jpeg",       
         alt: "Séance Photo",
         label: "Séance Photo",
         mood: "Portrait",
@@ -114,7 +114,7 @@ export const GALLERY = [
     },
     {
         id: 9,
-        src: "../src/assets/guelwab5.jpeg",       
+        src: "./assets/guelwab5.jpeg",       
         alt: "Boss Lady",
         label: "Boss Lady",
         mood: "Travail",
@@ -132,7 +132,7 @@ export const GALLERY = [
 export const VIDEOS = [
     {
         id: 1,
-        thumbSrc: "../src/assets/guelamanda.jpg",  
+        thumbSrc: "./assets/guelamanda.jpg",  
         videoSrc: null,                          
         youtubeId: "DPCRpkav3Bw",            
         title: "Amanda - Version Congolaise",
@@ -142,7 +142,7 @@ export const VIDEOS = [
     },
     {
         id: 2,
-        thumbSrc: "../src/assets/guelwab6.jpeg",
+        thumbSrc: "./assets/guelwab6.jpeg",
         videoSrc: null,
         youtubeId: "fZvEnowSa-g",
         title: "bad influence — omah lay",
@@ -152,7 +152,7 @@ export const VIDEOS = [
     },
     {
         id: 3,
-        thumbSrc: "../src/assets/flag.jpeg",
+        thumbSrc: "./assets/flag.jpeg",
         videoSrc: null,
         youtubeId: "dp9ng7BR_MQ",
         title: "Le congo est à nous",
@@ -162,7 +162,7 @@ export const VIDEOS = [
     },
     {
         id: 4,
-        thumbSrc: "../src/assets/gwhero1.jpeg",  
+        thumbSrc: "./assets/gwhero1.jpeg",  
         videoSrc: null,
         youtubeId: "1qCvVI0IWNY",
         title: "lâche",
@@ -181,7 +181,7 @@ export const TRACKS = [
         title: "Maisha",
         tag: "Afro-Soul · 2026",
         dur: "2:25",
-        audioSrc: "../src/assets/audio/Maisha.mp3",
+        audioSrc: "./assets/audio/Maisha.mp3",
         streamUrl: "https://www.youtube.com/watch?v=eE3i9bRc65k",
     },
     {
@@ -189,7 +189,7 @@ export const TRACKS = [
         title: "Amanda version congolaise",
         tag: "Afro-pop",
         dur: "1:15",
-        audioSrc: "../src/assets/audio/Amanda.mp3",
+        audioSrc: "./assets/audio/Amanda.mp3",
         streamUrl: "https://www.youtube.com/watch?v=DPCRpkav3Bw",
     },
     {
@@ -205,7 +205,7 @@ export const TRACKS = [
         title: "Moini ",
         tag: "Afro-pop & RnB · 2023",
         dur: "2:47",
-        audioSrc: "../src/assets/audio/moini.mp3",
+        audioSrc: "./assets/audio/moini.mp3",
         streamUrl: "https://www.ashburyedu.co.za/details/E1lXb02I684",
     },
     {
@@ -213,7 +213,7 @@ export const TRACKS = [
         title: "Lâche",
         tag: "Afro-pop",
         dur: "2:38",
-        audioSrc: "../src/assets/audio/lache.mp3",
+        audioSrc: "./assets/audio/lache.mp3",
         streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
     },
     {
@@ -221,7 +221,7 @@ export const TRACKS = [
         title: "Decision",
         tag: "Afro-pop",
         dur: "3:06",
-        audioSrc: "../src/assets/audio/Decision.mp3",
+        audioSrc: "./assets/audio/Decision.mp3",
         streamUrl: "https://www.youtube.com/watch?v=BsUhyk3OKXo",
     },
 ];
@@ -229,7 +229,7 @@ export const TRACKS = [
 // ── VINYL CENTER PHOTO ───────────────────────────────────────
 // Small circular photo shown in the center of the spinning vinyl
 // Use a close-up portrait of Guelwab
-export const VINYL_PHOTO = "../src/assets/guelwab2.jpeg";
+export const VINYL_PHOTO = "./assets/guelwab2.jpeg";
 
 // ── PRESS / QUOTES ───────────────────────────────────────────
 export const QUOTES = [
