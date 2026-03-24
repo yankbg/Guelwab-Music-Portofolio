@@ -178,58 +178,58 @@ export const VIDEOS = [
 export const TRACKS = [
     {
         id: 1,
-        title: "Kindu",
-        tag: "Afro-Soul · 2024",
-        dur: "3:42",
-        audioSrc: null,
-        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
+        title: "Maisha",
+        tag: "Afro-Soul · 2026",
+        dur: "2:25",
+        audioSrc: "../src/assets/audio/Maisha.mp3",
+        streamUrl: "https://www.youtube.com/watch?v=eE3i9bRc65k",
     },
     {
         id: 2,
-        title: "Mère Courage",
-        tag: "R&B Congolais · 2024",
-        dur: "4:15",
-        audioSrc: null,
-        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
+        title: "Amanda version congolaise",
+        tag: "Afro-pop",
+        dur: "1:15",
+        audioSrc: "../src/assets/audio/Amanda.mp3",
+        streamUrl: "https://www.youtube.com/watch?v=DPCRpkav3Bw",
     },
     {
         id: 3,
-        title: "Goma Nights",
-        tag: "Afrobeats · 2024",
-        dur: "3:58",
+        title: "Push 2 start version française",
+        tag: "Amapiano & Pop",
+        dur: "2:34",
         audioSrc: null,
-        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
+        streamUrl: "https://www.youtube.com/watch?v=9PhNMURiU0E",
     },
     {
         id: 4,
-        title: "La Chorale",
-        tag: "Gospel Soul · 2023",
-        dur: "5:02",
-        audioSrc: null,
-        streamUrl: null,
+        title: "Moini ",
+        tag: "Afro-pop & RnB · 2023",
+        dur: "2:47",
+        audioSrc: "../src/assets/audio/moini.mp3",
+        streamUrl: "https://www.ashburyedu.co.za/details/E1lXb02I684",
     },
     {
         id: 5,
-        title: "Papillon d'Or",
-        tag: "Pop Urbaine · 2023",
-        dur: "4:30",
-        audioSrc: null,
-        streamUrl: null,
+        title: "Lâche",
+        tag: "Afro-pop",
+        dur: "2:38",
+        audioSrc: "../src/assets/audio/lache.mp3",
+        streamUrl: "https://www.youtube.com/watch?v=1qCvVI0IWNY",
     },
     {
         id: 6,
-        title: "Diplôme",
-        tag: "Afro-Soul · 2023",
-        dur: "3:55",
-        audioSrc: null,
-        streamUrl: null,
+        title: "Decision",
+        tag: "Afro-pop",
+        dur: "3:06",
+        audioSrc: "../src/assets/audio/Decision.mp3",
+        streamUrl: "https://www.youtube.com/watch?v=BsUhyk3OKXo",
     },
 ];
 
 // ── VINYL CENTER PHOTO ───────────────────────────────────────
 // Small circular photo shown in the center of the spinning vinyl
 // Use a close-up portrait of Guelwab
-export const VINYL_PHOTO = "/assets/hero.png";
+export const VINYL_PHOTO = "../src/assets/guelwab2.jpeg";
 
 // ── PRESS / QUOTES ───────────────────────────────────────────
 export const QUOTES = [
@@ -257,8 +257,7 @@ export const SOCIALS = [
     { icon: "🎵", label: "TikTok",    href: "https://www.tiktok.com/@guelwab4?_r=1&_t=ZN-91gmhdgFHmg" },
     { icon: "▶",  label: "YouTube",   href: "https://youtube.com/@guelwab-tr4co?si=9zmGqobplG6nPuJ6" },
     { icon: "📘", label: "Facebook",  href: "https://www.facebook.com/share/1ANF4BAMMw/?mibextid=wwXIfr" },
-    { icon: "🎧", label: "Spotify",   href: "https://open.spotify.com/user/3147nqfcxy3letw4kqaynvjhoque" },
-    { icon: "📱", label: "WhatsApp",  href: "https://wa.me/+256790228489" },
+    { icon: "🎧", label: "Boomplay",   href: "https://www.boomplay.com/artists/120757648?from=search" },
 ];
 
 // ── FILTER CATEGORIES ────────────────────────────────────────
