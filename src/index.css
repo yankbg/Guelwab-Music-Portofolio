@@ -2,6 +2,18 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ── GLOBAL OVERFLOW FIX ────────────────────── */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Every direct child of body must not exceed viewport */
+#root {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 :root {
     --ink:    #080608;
     --deep:   #100d10;
@@ -54,10 +66,11 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 24px 56px;
-    max-width: 100vw;
-    overflow: hidden;
     backdrop-filter: blur(14px);
     background: linear-gradient(to bottom, rgba(8,6,8,0.92), transparent);
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
 }
 .n-logo {
     font-family: 'Playfair Display', serif;
@@ -306,7 +319,12 @@ nav {
 }
 
 /* ── SECTION BASE ────────────────────────────── */
-.sec { padding: 120px 56px; }
+.sec {
+    padding: 120px 56px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .sec-alt { background: var(--deep); }
 .sec-label {
     font-size: 0.58rem;
@@ -436,7 +454,7 @@ nav {
     color: var(--ink);
     border-color: var(--gold);
 }
-.masonry { columns: 3; column-gap: 10px; }
+.masonry { columns: 3; column-gap: 10px; width: 100%; max-width: 100%; }
 
 .m-item {
     break-inside: avoid;
@@ -555,6 +573,9 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 .video-main { grid-row: span 2; }
 .v-item {
@@ -563,6 +584,8 @@ nav {
     cursor: none;
     background: var(--card);
     aspect-ratio: 16/9;
+    width: 100%;
+    max-width: 100%;
 }
 .video-main .v-item { aspect-ratio: unset; min-height: 440px; }
 .v-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -744,8 +767,11 @@ nav {
     display: flex;
     gap: 20px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding-bottom: 8px;
     scrollbar-width: none;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 .press-row::-webkit-scrollbar { display: none; }
 .p-card {
@@ -868,7 +894,7 @@ footer {
 /* ── TABLET (≤ 1024px) ───────────────────────── */
 @media (max-width: 1024px) {
 
-    nav { padding: 20px 32px; }
+    nav { padding: 20px 32px; max-width: 100vw; }
 
     .sec { padding: 90px 32px; }
 
@@ -901,7 +927,7 @@ footer {
     .gallery-header { flex-direction: column; align-items: flex-start; gap: 24px; }
 
     /* Videos: single column */
-    .video-grid { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: 1fr; max-width: 100%; }
     .video-main { grid-row: auto; }
     .video-main .v-item { min-height: 300px; aspect-ratio: 16/9; }
 
@@ -938,7 +964,10 @@ footer {
     .m-expand, .lb-close, .lb-nav,
     .n-links a, .soc-btn { cursor: pointer; }
 
-    nav { padding: 18px 20px; }
+    nav { padding: 14px 16px; max-width: 100vw; overflow: hidden; }
+
+    /* Logo smaller on mobile */
+    .n-logo { font-size: 1.1rem; }
 
     /* Show hamburger, hide nav links */
     .nav-toggle { display: flex; z-index: 201; }
